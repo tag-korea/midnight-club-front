@@ -1,0 +1,25 @@
+.font-data-table {
+	font-size: 3;
+	font-weight: bold;
+}
+
+.center-base {
+	width: 50%
+}
+
+.border-small {
+	max-width: 50px;
+	margin: 6 4 4 4;
+}
+
+.border-red {
+	border-width: 4px;
+	border-color: red;
+	border-style: groove;
+}
+
+.border-gold {
+	border-width: 4px;
+	border-color: gold;
+	border-style: groove;
+}

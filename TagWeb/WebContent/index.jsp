@@ -3,7 +3,7 @@
 <head>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <meta charset="UTF-8" />
-<title>Pages - Admin Dashboard UI Kit</title>
+<title>천사와 악마의 놀이터 미드나잇클럽 - Midnight Club</title>
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <link rel="apple-touch-icon" href="pages/ico/60.png">
@@ -15,6 +15,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta content="" name="description" />
 <meta content="" name="author" />
+<link href="assets/css/myTest.css" rel="stylesheet"	type="text/css" />
 <link href="assets/plugins/pace/pace-theme-flash.css" rel="stylesheet"	type="text/css" />
 <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 <link href="assets/plugins/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
@@ -58,14 +59,20 @@
                 ajax : {
                     "url":"http://13.124.92.184:9320/notice/list",
                     "type":"GET",
-                    "dataSrc":'',
+                    "dataSrc": "",
                     "data": function (d) {
-                    	
                     }
                 },
                 columns : [
-                    {data: "icon", "render": function (data) {return '<img width=40 height=40 src="'+data+'" />'}},
-                    {data: "userId"},
+                    {data: "account", "render": function (data) {
+	                    	if (data.level < 900) {
+	                    		return '<div class="border-small border-red font-data-table"><img width=40 height=40 src="' + data.icon.iconImageUrl + '" />LV' + data.level + '</div>'
+	                    	} else {
+	                    		return '<div class="border-small border-gold font-data-table"><img width=40 height=40 src="' + data.icon.iconImageUrl + '" />LV' + data.level + '</div>'
+	                    	}
+                    	}
+		    		},
+                    {data: "account.userId"},
                     {data: "title"},
                     {data: "viewCount"},
                     {data: "createdDate"}
