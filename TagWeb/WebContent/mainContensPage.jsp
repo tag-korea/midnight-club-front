@@ -2,7 +2,7 @@
 <%
 	String pageMainGrid = request.getParameter("pageMainGrid");
 	if (pageMainGrid == null || pageMainGrid.isEmpty()) {
-		pageMainGrid = "index2.jsp";
+		pageMainGrid = "main.jsp";
 	}
 %>
 <!-- START PAGE CONTENT -->

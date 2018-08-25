@@ -12,8 +12,9 @@
 <script type="text/javascript" class="code-js">
 	$(document).ready(function() {
 			$('#gridNotice').DataTable({
-		    	pageLength: 3,	// 한 페이지에 기본으로 보여줄 항목 수
-	            bPaginate: false,	// 페이징 처리를 할 것인지를 정한다. "false"로 주면 "pageLength"와는 관계 없이 전체 데이터를 출력한다
+		    	pageLength: 5,	// 한 페이지에 기본으로 보여줄 항목 수
+		    	sDom: "lfrti",	// pagination 삭제
+	            bPaginate: true,	// 페이징 처리를 할 것인지를 정한다. "false"로 주면 "pageLength"와는 관계 없이 전체 데이터를 출력한다
 	            bLengthChange: false,	// 한 페이지에 보여줄 항목 수를 변경할 것인지를 정한다. "true"로 주면 그리드에 리스트박스를 추가한다.
 	            lengthMenu : [ [ 3, 5, 10, -1 ], [ 3, 5, 10, "All" ] ],	// "bLengthChange" 리스트 항목을 구성할 옵션들을 정해준다.
 	            bAutoWidth: false,	// 자동 컬럼 폭을 계산하여 반영한다.
@@ -49,8 +50,8 @@
 </script>
 	
 <!-- BEGIN PlACE PAGE CONTENT HERE -->
-<table id="gridNotice" class="table table-striped table-bordered table-hover" >
-    <thead>
+<table id="gridNotice" class="table table-hover" >
+    <thead style='display:none;'>
         <tr>
             <th>icon</th>
             <th>userId</th>
