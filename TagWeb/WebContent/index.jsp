@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<!--<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>-->
 <meta charset="UTF-8" />
 <title>천사와 악마의 놀이터 미드나잇클럽 - Midnight Club</title>
 <meta name="viewport"
@@ -65,13 +65,16 @@
                 },
                 columns : [
                     {data: "account", "render": function (data) {
+                                var image = '<div class="'; 
 	                    	if (data.level < 900) {
-	                    		return '<div class="border-small border-red font-data-table"><img width=40 height=40 src="' + data.icon.iconImageUrl + '" />LV' + data.level + '</div>'
+	                    	    image += 'bg-wrapper'; 
 	                    	} else {
-	                    		return '<div class="border-small border-gold font-data-table"><img width=40 height=40 src="' + data.icon.iconImageUrl + '" />LV' + data.level + '</div>'
+                                    image += 'bg-wrapper-border';
 	                    	}
-                    	}
-		    		},
+	                    	image += '"><img width=40 height=40 src="' + data.icon.borderImageUrl + '" /></div><div class="font-data-table">LV' + data.level + '</div>';
+                                return image;	                    	
+                          }
+		    },
                     {data: "account.userId"},
                     {data: "title"},
                     {data: "viewCount"},

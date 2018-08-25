@@ -3,23 +3,15 @@
 	font-weight: bold;
 }
 
-.center-base {
-	width: 50%
+.bg-wrapper-border {
+  background-image: url('https://s3.ap-northeast-2.amazonaws.com/midnightclubbucket/KakaoTalk_20180819_201232261.png');
+  background-size: 40px 40px; /** Also try "contain" **/
+  background-repeat: no-repeat
 }
 
-.border-small {
-	max-width: 50px;
-	margin: 6 4 4 4;
+.bg-wrapper {
+  background-image: url('http://www.gstatic.com/webp/gallery/1.jpg');
+  background-size: 40px 40px; /** Also try "contain" **/
+  background-repeat: no-repeat
 }
 
-.border-red {
-	border-width: 4px;
-	border-color: red;
-	border-style: groove;
-}
-
-.border-gold {
-	border-width: 4px;
-	border-color: gold;
-	border-style: groove;
-}
