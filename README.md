@@ -2,5 +2,9 @@
 
 # 배포 방식
 ```
-추후 업데이트
+jsp 배포
+script/deploy.sh
+
+전체 배포
+script/deploy.sh all
 ```
