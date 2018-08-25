@@ -15,7 +15,6 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta content="" name="description" />
 <meta content="" name="author" />
-<link href="assets/css/my_test.css" rel="stylesheet"	type="text/css" />
 <link href="assets/plugins/pace/pace-theme-flash.css" rel="stylesheet"	type="text/css" />
 <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 <link href="assets/plugins/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
@@ -41,10 +40,11 @@
 <script type="text/javascript" class="code-js">
 		$(document).ready(function() {
 		    $('#gridNotice').DataTable({
-		    	pageLength: 3,	// 한 페이지에 기본으로 보여줄 항목 수
+		    	pageLength: 5,	// 한 페이지에 기본으로 보여줄 항목 수
                 bPaginate: false,	// 페이징 처리를 할 것인지를 정한다. "false"로 주면 "pageLength"와는 관계 없이 전체 데이터를 출력한다
-                bLengthChange: false,	// 한 페이지에 보여줄 항목 수를 변경할 것인지를 정한다. "true"로 주면 그리드에 리스트박스를 추가한다.
+                bLengthChange: true,	// 한 페이지에 보여줄 항목 수를 변경할 것인지를 정한다. "true"로 주면 그리드에 리스트박스를 추가한다.
                 lengthMenu : [ [ 3, 5, 10, -1 ], [ 3, 5, 10, "All" ] ],	// "bLengthChange" 리스트 항목을 구성할 옵션들을 정해준다.
+                bInfo : false,		// Showing ~~ 문구 삭제
                 bAutoWidth: false,	// 자동 컬럼 폭을 계산하여 반영한다.
                 processing: false,	// "true"로 주면 값을 가져오는 등의 처리 상황에서 대기가 발생할 때, "processing"인디케이터를 보여준다.
                 ordering: false,	// 항목들에 대한 정렬을 사용할 것인가를 결정한다.
@@ -65,16 +65,8 @@
                 },
                 columns : [
                     {data: "account", "render": function (data) {
-                                var image = '<div class="'; 
-	                    	if (data.level < 900) {
-	                    	    image += 'bg-wrapper'; 
-	                    	} else {
-                                    image += 'bg-wrapper-border';
-	                    	}
-	                    	image += '"><img width=40 height=40 src="' + data.icon.borderImageUrl + '" /></div><div class="font-data-table">LV' + data.level + '</div>';
-                                return image;	                    	
-                          }
-		    },
+                    	return '<div style="position: relative; z-index: 1;"><img width=39 height=39 src="'+data.icon.iconImageUrl+'" /></div>' + 
+                    			'<div style="position: relative; z-index: 2; top: -40px;height: 0;"><img width=40 height=40 src="'+data.icon.borderImageUrl+'" /></div>'}},
                     {data: "account.userId"},
                     {data: "title"},
                     {data: "viewCount"},
@@ -345,17 +337,30 @@
 				<!-- END JUMBOTRON -->
 				<!-- START CONTAINER FLUID -->
 				<table id="gridNotice" class="table table-striped table-bordered table-hover" >
-			    <thead>
-			        <tr>
-			            <th>icon</th>
-			            <th>userId</th>
-			            <th>title</th>
-			            <th>viewCount</th>
-			            <th>createdDate</th>
-			        </tr>
-			    </thead>
-			    <!-- tbody 태그 필요 없다. -->
-			</table>
+				    <thead>
+				        <tr>
+				            <th>icon</th>
+				            <th>userId</th>
+				            <th>title</th>
+				            <th>viewCount</th>
+				            <th>createdDate</th>
+				        </tr>
+				    </thead>
+				    <!-- tbody 태그 필요 없다. -->
+				</table>
+				
+				<table id="gridNotice" class="table table-striped table-bordered table-hover" >
+				    <thead>
+				        <tr>
+				            <th>icon</th>
+				            <th>userId</th>
+				            <th>title</th>
+				            <th>viewCount</th>
+				            <th>createdDate</th>
+				        </tr>
+				    </thead>
+				    <!-- tbody 태그 필요 없다. -->
+				</table>
 				
 				<div class="container-fluid container-fixed-lg">
 					<!-- BEGIN PlACE PAGE CONTENT HERE -->
