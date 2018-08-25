@@ -18,8 +18,8 @@ BASE=$(cd $(dirname $(readlink $0 || echo $0))/..;/bin/pwd)
 HOST=midnightclub.kr
 
 ## copy
-echo "scp $BASE/WebContent/index.jsp uadmin@$HOST:/uadmin/html/main/"
-scp $BASE/WebContent/index.jsp uadmin@$HOST:/uadmin/html/main/
+echo "scp $BASE/WebContent/*.jsp uadmin@$HOST:/uadmin/html/main/"
+scp $BASE/WebContent/*.jsp uadmin@$HOST:/uadmin/html/main/
 
 if [[ $ARGV1 == "all" ]]; then
     scp -r $BASE/WebContent/assets uadmin@$HOST:/uadmin/html/main/
