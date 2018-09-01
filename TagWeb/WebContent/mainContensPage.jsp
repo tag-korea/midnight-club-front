@@ -13,7 +13,7 @@
 			<div class="inner">
 				<!-- START BREADCRUMB -->
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item active">공지사항</li>
+					<li class="breadcrumb-item active">게임게시판</li>
 				</ol>
 				<!-- END BREADCRUMB -->
 			</div>

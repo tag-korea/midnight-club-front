@@ -33,9 +33,15 @@
 <link class="main-stylesheet" href="pages/css/themes/light.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript">
   function changePage(page) {
-<%if (page == "petition") {
-				pageMainGrid = "index3.jsp";
-			}%>
+<%
+	System.out.println(page);
+	if (page == "petition") {
+		pageMainGrid = "index3.jsp";
+	}
+	else if(page == "game") {
+		pageMainGrid = "gamePage.jsp";
+	}
+%>
   }
 </script>
 </head>

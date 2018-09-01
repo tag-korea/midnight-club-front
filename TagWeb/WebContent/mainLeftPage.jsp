@@ -34,7 +34,7 @@
 			</a> <span class="icon-thumbnail "><i data-feather="shield"></i></span></li>
 			<li class=""><a href="#"> <span class="title">후원 게시판</span>
 			</a> <span class="icon-thumbnail "><i data-feather="list"></i></span></li>
-			<li class=""><a href="#"> <span class="title">게임 게시판</span>
+			<li class="" onclick="javascript:changePage('game')"><a href="#"> <span class="title">게임 게시판</span>
 			</a> <span class="icon-thumbnail "><i data-feather="list"></i></span></li>
 			<li class=""><a href="#"> <span class="title">공략 게시판</span>
 			</a> <span class="icon-thumbnail "><i data-feather="list"></i></span></li>

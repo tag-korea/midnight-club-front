@@ -39,7 +39,7 @@
                 	{data: "account", "render": function (data) {
                     	return '<div style="position: relative; z-index: 1;"><img width=39 height=39 src="'+data.icon.iconImageUrl+'" /></div>' + 
                     			'<div style="position: relative; z-index: 2; top: -40px;height: 0;"><img width=40 height=40 src="'+data.icon.borderImageUrl+'" /></div>'}},
-                    {data: "account.userId"},
+                    {data: "account.nickName"},
                     {data: "title"},
                     {data: "viewCount"},
                     {data: "createdDate"}
@@ -53,7 +53,7 @@
     <thead>
         <tr>
             <th>icon</th>
-            <th>userId</th>
+            <th>nickName</th>
             <th>title</th>
             <th>viewCount</th>
             <th>createdDate</th>
