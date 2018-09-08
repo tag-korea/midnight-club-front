@@ -39,7 +39,7 @@
 
 <script type="text/javascript" class="code-js">
 		$(document).ready(function() {
-		    $('#gridNotice').DataTable({
+		    $('#gridGame').DataTable({
 		    	pageLength: 5,	// 한 페이지에 기본으로 보여줄 항목 수
                 bPaginate: false,	// 페이징 처리를 할 것인지를 정한다. "false"로 주면 "pageLength"와는 관계 없이 전체 데이터를 출력한다
                 bLengthChange: true,	// 한 페이지에 보여줄 항목 수를 변경할 것인지를 정한다. "true"로 주면 그리드에 리스트박스를 추가한다.
@@ -112,7 +112,7 @@
 				</a> <span class="icon-thumbnail "><i data-feather="shield"></i></span></li>
 				<li class=""><a href="#"> <span class="title">후원 게시판</span>
 				</a> <span class="icon-thumbnail "><i data-feather="list"></i></span></li>
-				<li class=""><a href="game.html"> <span class="title">게임 게시판</span>
+				<li class=""><a href="#"> <span class="title" onclick="callBoard();">게임 게시판</span>
 				</a> <span class="icon-thumbnail "><i data-feather="list"></i></span></li>
 				<li class=""><a href="#"> <span class="title">공략 게시판</span>
 				</a> <span class="icon-thumbnail "><i data-feather="list"></i></span></li>
@@ -341,7 +341,7 @@
 				</div>
 				<!-- END JUMBOTRON -->
 				<!-- START CONTAINER FLUID -->
-				<table id="gridNotice" class="table table-striped table-bordered table-hover" >
+				<table id="gridGame" class="table table-striped table-bordered table-hover" >
 				    <thead>
 				        <tr>
 				            <th>icon</th>
