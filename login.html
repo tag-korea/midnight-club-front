@@ -320,23 +320,35 @@
 		<!-- END VENDOR JS -->
 		<script src="pages/js/pages.min.js"></script>
 		<script>
+			function formDataToJSON(FormElement) {
+				var formData = new FormData(FormElement);
+				var ConvertedJSON = {};
+				for (const [key, value] of formData.entries()) {
+					ConvertedJSON[key] = value;
+				}
+
+				return ConvertedJSON
+			}
+		</script>
+		<script>
 			function formLoginSubmit() {
-				var params = jQuery("#form-login").serialize();
+				var jsonData = formDataToJSON(document.getElementById('form-login'));
 				$.ajax({
 					url: "http://localhost:9320/account/logIn",
-					type: "POST",
-					data: params,
-					//dataType: "json",
-					beforeSend: function(request) {
-						request.setRequestHeader("Access-Control-Requset-Origin", "http://www.midnightclub.kr");
+					method: "POST",
+					data: JSON.stringify(jsonData),
+					dataType: "json",
+					contentType: 'application/json',
+					header: {
+						'Access-Control-Allow-Origin': 'http://midnightclub.kr'
 					},
 					success: function(result) {
-						alert('통신성공');
+						alert(JSON.stringify(result));
 					},
 					error: function(result) {
 						alert(result);
 					}
-				 });
+				});
 			}
 		</script>
 </body>
