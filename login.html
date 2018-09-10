@@ -334,13 +334,13 @@
 			function formLoginSubmit() {
 				var jsonData = formDataToJSON(document.getElementById('form-login'));
 				$.ajax({
-					url: "http://localhost:9320/account/logIn",
+					url: "http://13.124.92.184:9320/account/logIn",
 					method: "POST",
 					data: JSON.stringify(jsonData),
 					dataType: "json",
 					contentType: 'application/json',
 					header: {
-						'Access-Control-Allow-Origin': 'http://midnightclub.kr'
+						'Access-Control-Allow-Origin': 'http://13.124.92.184'
 					},
 					success: function(result) {
 						alert(JSON.stringify(result));
