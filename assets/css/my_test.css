@@ -1,0 +1,17 @@
+.font-data-table {
+	font-size: 3;
+	font-weight: bold;
+}
+
+.bg-wrapper-border {
+  background-image: url('https://s3.ap-northeast-2.amazonaws.com/midnightclubbucket/KakaoTalk_20180819_201232261.png');
+  background-size: 40px 40px; /** Also try "contain" **/
+  background-repeat: no-repeat
+}
+
+.bg-wrapper {
+  background-image: url('http://www.gstatic.com/webp/gallery/1.jpg');
+  background-size: 40px 40px; /** Also try "contain" **/
+  background-repeat: no-repeat
+}
+
