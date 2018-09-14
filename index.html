@@ -91,7 +91,19 @@
 						data: "viewCount"
 					},
 					{
-						data: "createdDate"
+						data: "createdDate",
+						"render": function(data) {
+							var date = new Date(data);
+							var now = new Date();
+
+							if (now.getFullYear() == date.getFullYear()
+								&& now.getMonth() == date.getMonth()
+								&& now.getDate() == date.getDate()) {
+								return date.getHours() + ":" + date.getMinutes();
+							} else {
+								return date.getFullYear() + "." + date.getMonth() + "." + date.getDate();
+							}
+						}
 					}
 				]
 			});
@@ -135,11 +147,11 @@
 					<table id="gridNotice" class="table table-striped table-bordered table-hover">
 						<thead>
 							<tr>
-								<th>icon</th>
-								<th>userId</th>
-								<th>title</th>
-								<th>viewCount</th>
-								<th>createdDate</th>
+								<th>레벨</th>
+								<th>사용자명</th>
+								<th>제목</th>
+								<th>조회수</th>
+								<th>작성시간</th>
 							</tr>
 						</thead>
 						<!-- tbody 태그 필요 없다. -->
@@ -154,12 +166,6 @@
 				<!-- END PAGE CONTENT -->
 
 				<!-- 내용 -->
-
-
-
-
-
-
 
 				<!-- START FOOTER -->
 				<div id="footer"></div>
