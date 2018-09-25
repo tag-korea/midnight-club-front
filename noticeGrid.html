@@ -57,7 +57,8 @@
 
 <script>
 	$(document).on("click", "tr[role='row']", function() {
-		alert($(this).children('td').text())
+		localStorage.setItem("noticeClickData", $(this).children('td').text());
+		window.location.href = "noticeDetail.html";
 	});
 </script>
 
