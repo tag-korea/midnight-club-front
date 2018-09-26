@@ -329,8 +329,6 @@
 
 				return ConvertedJSON
 			}
-		</script>
-		<script>
 			function formLoginSubmit() {
 				var jsonData = formDataToJSON(document.getElementById('form-login'));
 				$.ajax({
@@ -344,6 +342,7 @@
 					},
 					success: function(result) {
 						alert(JSON.stringify(result));
+						localStorage.setItem("accountToken", result);
 					},
 					error: function(result) {
 						alert(result);

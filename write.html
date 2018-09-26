@@ -68,19 +68,29 @@
 										</div>
 									</div>
 									<div class="card-body no-scroll card-toolbar">
-										<h5>게시물 작성</h5>
+										<form id="form-project" role="form" autocomplete="off">
+	                    <div class="form-group-attached">
+	                      <div class="form-group form-group-default">
+	                        <label>제목</label>
+	                        <input type="text" class="form-control" name="subject">
+	                      </div>
+	                    </div>
 										<div class="summernote-wrapper">
 											<div id="summernote"></div>
-											<button type="button" class="btn btn-default btn-sm">
-													<span class="glyphicon glyphicon-pencil"></span> 임시저장
-												</button>
-												<button type="button" class="btn btn-default btn-sm">
+											<div class="row p-b-20">
+												<div class="col-md-11 d-md-flex d-lg-flex d-xl-flex d-block">
+													<!-- <button type="button" class="btn btn-default btn-cons">
 														<span class="glyphicon glyphicon-pencil"></span> 미리보기
-													</button>
-													<button type="button" class="btn btn-default btn-sm"><a href="index.html">
+													</button> -->
+													<button type="button" class="btn btn-white btn-cons"><a href="index.html">
 															<span class="glyphicon glyphicon-pencil"></span>취소</a>
 														</button>
-											<button type="button" class="btn btn-default btn-sm" onclick="showContent();">완료</button>
+													<button type="button" class="btn btn-complete btn-cons m-l-10" onclick="showContent();">완료</button>
+												</div>
+												<div class="col-md-1">
+													<button class="btn btn-complete pull-right"><i class="pg-save"></i></button>
+												</div>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -749,22 +759,21 @@
 							$("#footer").load("mainFooterPage.html");
 							$("#leftPage").load("mainLeftPage.html");
 						});
-					</script>
-					<script>
+
 						function formDataToJSON(FormElement) {
 							var formData = new FormData(FormElement);
 							var ConvertedJSON = {};
 							for (const [key, value] of formData.entries()) {
 								ConvertedJSON[key] = value;
 							}
-
 							return ConvertedJSON
 						}
-					</script>
-					<script>
+
 						function showContent() {
-							var jsonData = formDataToJSON(document.getElementById('form-login'));
-              $('.output').html($('#summernote').summernote('code'));
+							var jsonData = formDataToJSON($('.output').html($('#summernote').summernote('code')));
+							options.beforeSend = function(xhr) {
+								xhr.setRequestHeader('accountToken', $('[name="accountToken"]').val());
+							};
 							$.ajax({
 								url: "http://13.124.92.184:9320/board/write",
 								method: "POST",
