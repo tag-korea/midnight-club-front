@@ -68,7 +68,7 @@
 										</div>
 									</div>
 									<div class="card-body no-scroll card-toolbar">
-										<form id="form-project" role="form" autocomplete="off">
+										<form id="form-title" role="form" autocomplete="off">
 	                    <div class="form-group-attached">
 	                      <div class="form-group form-group-default">
 	                        <label>제목</label>
@@ -759,18 +759,15 @@
 							$("#footer").load("mainFooterPage.html");
 							$("#leftPage").load("mainLeftPage.html");
 						});
-
-						function formDataToJSON(FormElement) {
-							var formData = new FormData(FormElement);
-							var ConvertedJSON = {};
-							for (const [key, value] of formData.entries()) {
-								ConvertedJSON[key] = value;
-							}
-							return ConvertedJSON
-						}
-
 						function showContent() {
-							var jsonData = formDataToJSON($('.output').html($('#summernote').summernote('code')));
+							data = new object();
+							data = {
+								title:document.getElementById('form-title');
+								content:$('.output').html($('#summernote').summernote('code'));
+								userId:"user";
+								boardType:"GAME";
+								previewImageUrl:"https://s3.ap-northeast-2.amazonaws.com/midnightclubbucket/icon/icon_purple.png";
+							}
 							options.beforeSend = function(xhr) {
 								xhr.setRequestHeader('accountToken', $('[name="accountToken"]').val());
 							};
