@@ -31,6 +31,34 @@
 	<link href="assets/plugins/bootstrap-timepicker/bootstrap-timepicker.min.css" rel="stylesheet" type="text/css" media="screen">
 	<link href="pages/css/pages-icons.css" rel="stylesheet" type="text/css">
 	<link class="main-stylesheet" href="pages/css/themes/light.css" rel="stylesheet" type="text/css" />
+	<script>
+		function newBoardContent() {
+			data = new object();
+			data = {
+				title:document.getElementById('form-title');
+				content:$('.output').html($('#summernote').summernote('code'));
+				userId:"user";
+				boardType:"GAME";
+				previewImageUrl:"https://s3.ap-northeast-2.amazonaws.com/midnightclubbucket/icon/icon_purple.png";
+			};
+			$.ajax({
+				options.beforeSend = function(xhr) {
+					xhr.setRequestHeader('accountToken', $('[name="accountToken"]').val());
+				};
+				url: "http://13.124.92.184:9320/board/write",
+				method: "POST",
+				data: JSON.stringify(jsonData),
+				dataType: "json",
+				contentType: 'board',
+				success: function(result) {
+					alert(JSON.stringify(result));
+				},
+				error: function(result) {
+					alert(result);
+				}
+			});
+		}
+	</script>
 </head>
 
 <body class="fixed-header menu-pin box-layout menu-pin">
@@ -85,7 +113,9 @@
 													<button type="button" class="btn btn-white btn-cons"><a href="index.html">
 															<span class="glyphicon glyphicon-pencil"></span>취소</a>
 														</button>
-													<button type="button" class="btn btn-complete btn-cons m-l-10" onclick="showContent();">완료</button>
+													<button type="button" value="" class="btn btn-complete btn-cons m-l-10" onclick="newBoardContent()">
+														<span class="glyphicon glyphicon-pencil"></span>완료
+													</button>
 												</div>
 												<div class="col-md-1">
 													<button class="btn btn-complete pull-right"><i class="pg-save"></i></button>
@@ -759,35 +789,6 @@
 							$("#footer").load("mainFooterPage.html");
 							$("#leftPage").load("mainLeftPage.html");
 						});
-						function showContent() {
-							data = new object();
-							data = {
-								title:document.getElementById('form-title');
-								content:$('.output').html($('#summernote').summernote('code'));
-								userId:"user";
-								boardType:"GAME";
-								previewImageUrl:"https://s3.ap-northeast-2.amazonaws.com/midnightclubbucket/icon/icon_purple.png";
-							}
-							options.beforeSend = function(xhr) {
-								xhr.setRequestHeader('accountToken', $('[name="accountToken"]').val());
-							};
-							$.ajax({
-								url: "http://13.124.92.184:9320/board/write",
-								method: "POST",
-								data: JSON.stringify(jsonData),
-								dataType: "json",
-								contentType: 'board',
-								header: {
-									'Access-Control-Allow-Origin': 'http://13.124.92.184'
-								},
-								success: function(result) {
-									alert(JSON.stringify(result));
-								},
-								error: function(result) {
-									alert(result);
-								}
-							});
-						}
 					</script>
 </body>
 
