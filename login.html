@@ -341,8 +341,8 @@
 						'Access-Control-Allow-Origin': 'http://13.124.92.184'
 					},
 					success: function(result) {
-						alert(JSON.stringify(result));
-						localStorage.setItem("accountToken", result);
+						console.log(result);
+						// localStorage.setItem("accountToken", result);
 					},
 					error: function(result) {
 						alert(result);
